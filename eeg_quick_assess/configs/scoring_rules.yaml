@@ -1,0 +1,177 @@
+levels:
+  low: 40
+  high: 70
+
+modules:
+  psych:
+    module_name: "心理健康模块"
+    dimensions:
+      安全感:
+        weights:
+          bandpower.relative.alpha: 0.4
+          ratios.theta_beta: 0.3
+          spectral_entropy.spectral_entropy: 0.3
+        norms:
+          bandpower.relative.alpha: {min: 0.15, max: 0.35}
+          ratios.theta_beta: {min: 1.0, max: 3.0}
+          spectral_entropy.spectral_entropy: {min: 0.3, max: 0.9}
+      抗挫:
+        weights:
+          stability.bandpower_cv.alpha: 0.5
+          stability.ratio_cv.theta_beta: 0.3
+          permutation_entropy.permutation_entropy: 0.2
+        norms:
+          stability.bandpower_cv.alpha: {min: 0.05, max: 0.3}
+          stability.ratio_cv.theta_beta: {min: 0.1, max: 0.5}
+          permutation_entropy.permutation_entropy: {min: 0.3, max: 0.9}
+      抑郁:
+        weights:
+          bandpower.relative.theta: 0.4
+          ratios.beta_alpha: 0.3
+          laterality.faa: 0.3
+        norms:
+          bandpower.relative.theta: {min: 0.1, max: 0.4}
+          ratios.beta_alpha: {min: 0.2, max: 0.8}
+          laterality.faa: {min: -0.5, max: 0.5}
+      纠结:
+        weights:
+          spectral_entropy.spectral_entropy: 0.5
+          stability.bandpower_drift.alpha: 0.5
+        norms:
+          spectral_entropy.spectral_entropy: {min: 0.3, max: 0.9}
+          stability.bandpower_drift.alpha: {min: -0.05, max: 0.05}
+      疲劳:
+        weights:
+          bandpower.relative.theta: 0.4
+          ratios.delta_theta_alpha: 0.4
+          bandpower.relative.beta: 0.2
+        norms:
+          bandpower.relative.theta: {min: 0.1, max: 0.5}
+          ratios.delta_theta_alpha: {min: 0.8, max: 3.0}
+          bandpower.relative.beta: {min: 0.1, max: 0.3}
+      恐惧:
+        weights:
+          bandpower.relative.beta: 0.4
+          ratios.theta_beta: 0.3
+          stability.ratio_cv.beta_alpha: 0.3
+        norms:
+          bandpower.relative.beta: {min: 0.1, max: 0.4}
+          ratios.theta_beta: {min: 0.8, max: 2.5}
+          stability.ratio_cv.beta_alpha: {min: 0.1, max: 0.4}
+      易怒:
+        weights:
+          bandpower.relative.beta: 0.5
+          spectral_entropy.spectral_entropy: 0.5
+        norms:
+          bandpower.relative.beta: {min: 0.1, max: 0.4}
+          spectral_entropy.spectral_entropy: {min: 0.3, max: 0.9}
+      自闭:
+        weights:
+          bandpower.relative.alpha: 0.5
+          laterality.faa: 0.5
+        norms:
+          bandpower.relative.alpha: {min: 0.1, max: 0.4}
+          laterality.faa: {min: -0.4, max: 0.4}
+
+  physio:
+    module_name: "脑生理监测模块"
+    dimensions:
+      脑耗氧:
+        weights:
+          bandpower.relative.beta: 0.5
+          ratios.beta_alpha: 0.5
+        norms:
+          bandpower.relative.beta: {min: 0.1, max: 0.4}
+          ratios.beta_alpha: {min: 0.3, max: 1.0}
+      脑疲劳:
+        weights:
+          bandpower.relative.theta: 0.6
+          ratios.delta_theta_alpha: 0.4
+        norms:
+          bandpower.relative.theta: {min: 0.1, max: 0.5}
+          ratios.delta_theta_alpha: {min: 0.8, max: 3.0}
+      血氧代谢:
+        weights:
+          spectral_entropy.spectral_entropy: 0.5
+          bandpower.relative.alpha: 0.5
+        norms:
+          spectral_entropy.spectral_entropy: {min: 0.3, max: 0.9}
+          bandpower.relative.alpha: {min: 0.1, max: 0.4}
+      大脑活力:
+        weights:
+          bandpower.relative.beta: 0.4
+          bandpower.relative.alpha: 0.4
+          stability.bandpower_cv.beta: 0.2
+        norms:
+          bandpower.relative.beta: {min: 0.1, max: 0.4}
+          bandpower.relative.alpha: {min: 0.1, max: 0.4}
+          stability.bandpower_cv.beta: {min: 0.05, max: 0.3}
+
+  cognitive:
+    module_name: "认知功能评估模块"
+    dimensions:
+      脑稳定度:
+        weights:
+          stability.bandpower_cv.alpha: 0.5
+          stability.ratio_cv.theta_beta: 0.5
+        norms:
+          stability.bandpower_cv.alpha: {min: 0.05, max: 0.3}
+          stability.ratio_cv.theta_beta: {min: 0.1, max: 0.5}
+      抵抗干扰:
+        weights:
+          ratios.theta_beta: 0.5
+          bandpower.relative.beta: 0.5
+        norms:
+          ratios.theta_beta: {min: 0.8, max: 2.5}
+          bandpower.relative.beta: {min: 0.1, max: 0.4}
+      思维弹性:
+        weights:
+          spectral_entropy.spectral_entropy: 0.4
+          permutation_entropy.permutation_entropy: 0.6
+        norms:
+          spectral_entropy.spectral_entropy: {min: 0.3, max: 0.9}
+          permutation_entropy.permutation_entropy: {min: 0.3, max: 0.9}
+      思维模式:
+        weights:
+          laterality.faa: 1.0
+        norms:
+          laterality.faa: {min: -0.5, max: 0.5}
+      行为反应:
+        weights:
+          bandpower.relative.beta: 0.5
+          ratios.beta_alpha: 0.5
+        norms:
+          bandpower.relative.beta: {min: 0.1, max: 0.4}
+          ratios.beta_alpha: {min: 0.2, max: 0.8}
+      情绪输出:
+        weights:
+          bandpower.relative.beta: 0.6
+          spectral_entropy.spectral_entropy: 0.4
+        norms:
+          bandpower.relative.beta: {min: 0.1, max: 0.4}
+          spectral_entropy.spectral_entropy: {min: 0.3, max: 0.9}
+      情感接受:
+        weights:
+          bandpower.relative.alpha: 0.6
+          stability.bandpower_drift.alpha: 0.4
+        norms:
+          bandpower.relative.alpha: {min: 0.1, max: 0.4}
+          stability.bandpower_drift.alpha: {min: -0.05, max: 0.05}
+
+  risk:
+    module_name: "风险预测/评估模块"
+    dimensions:
+      焦虑风险:
+        weights:
+          bandpower.relative.beta: 0.5
+          ratios.theta_beta: 0.5
+        norms:
+          bandpower.relative.beta: {min: 0.1, max: 0.4}
+          ratios.theta_beta: {min: 0.8, max: 2.5}
+      抑郁风险:
+        weights:
+          bandpower.relative.theta: 0.5
+          laterality.faa: 0.5
+        norms:
+          bandpower.relative.theta: {min: 0.1, max: 0.4}
+          laterality.faa: {min: -0.5, max: 0.5}
