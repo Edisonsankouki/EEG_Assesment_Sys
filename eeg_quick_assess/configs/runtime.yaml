@@ -1,0 +1,22 @@
+preprocess:
+  bandpass:
+    low: 0.5
+    high: 45.0
+  notch_freq: 50.0
+  reference: average
+
+windowing:
+  window_sec: 4.0
+  overlap: 0.5
+
+qc:
+  amplitude_uV: 120.0
+  gradient_uV: 50.0
+  line_freq: 50.0
+  line_band: 1.0
+  emg_band: [30.0, 45.0]
+  line_ratio_th: 0.2
+  emg_ratio_th: 0.2
+
+features:
+  welch_nperseg: 1024

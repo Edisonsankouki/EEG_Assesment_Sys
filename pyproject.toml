@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "eeg_quick_assess"
+version = "0.1.0"
+description = "Deterministic EEG quick assessment with rule-based scoring and optional LLM summarization."
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [
+  {name = "Vibe Coding Agent"}
+]
+dependencies = [
+  "numpy>=1.23",
+  "scipy>=1.9",
+  "pyyaml>=6.0",
+  "pydantic>=2.0",
+  "mne>=1.4",
+]
+
+[project.optional-dependencies]
+llm = [
+  "transformers>=4.38",
+  "torch>=2.0",
+  "llama-cpp-python>=0.2.50",
+]
+
+[project.scripts]
+eeg-qa = "eeg_quick_assess.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["eeg_quick_assess"]
