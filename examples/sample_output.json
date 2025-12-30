@@ -1,0 +1,54 @@
+{
+  "version": "0.1.0",
+  "timestamp": "2025-01-01T00:00:00",
+  "meta": {
+    "sfreq": 250,
+    "ch_names": ["F3", "F4", "C3", "C4", "P3", "P4", "O1", "O2"],
+    "reference": "average",
+    "linefreq": 50,
+    "input_type": "numpy"
+  },
+  "qc": {
+    "valid_duration_sec": 360.0,
+    "artifact_window_ratio": 0.1,
+    "line_noise_ratio": 0.05,
+    "emg_ratio": 0.08,
+    "max_abs_uV": 95.0,
+    "artifact_flags": []
+  },
+  "modules": {
+    "psych": {
+      "module_name": "心理健康模块",
+      "dimensions": {
+        "安全感": {"score": 55.0, "level": "中", "evidence": ["bandpower.relative.alpha"], "fixed_text": "安全感代理指数中等（55.0），数据质量可接受", "missing_features": null, "confidence": 0.9}
+      },
+      "module_text_rule": "模块：心理健康模块\nQC提示：数据质量可接受\n- 安全感: 分数 55.0，等级 中。安全感代理指数中等（55.0），数据质量可接受"
+    },
+    "physio": {
+      "module_name": "脑生理监测模块",
+      "dimensions": {
+        "脑耗氧": {"score": 60.0, "level": "中", "evidence": ["bandpower.relative.beta"], "fixed_text": "脑耗氧为 EEG 代理指数，中等（60.0）。", "missing_features": null, "confidence": 0.9}
+      },
+      "module_text_rule": "模块：脑生理监测模块\nQC提示：数据质量可接受\n- 脑耗氧: 分数 60.0，等级 中。脑耗氧为 EEG 代理指数，中等（60.0）。"
+    },
+    "cognitive": {
+      "module_name": "认知功能评估模块",
+      "dimensions": {
+        "脑稳定度": {"score": 52.0, "level": "中", "evidence": ["stability.bandpower_cv.alpha"], "fixed_text": "脑稳定度代理指数中等（52.0）。", "missing_features": null, "confidence": 0.9}
+      },
+      "module_text_rule": "模块：认知功能评估模块\nQC提示：数据质量可接受\n- 脑稳定度: 分数 52.0，等级 中。脑稳定度代理指数中等（52.0）。"
+    },
+    "risk": {
+      "module_name": "风险预测/评估模块",
+      "dimensions": {
+        "焦虑风险": {"score": 45.0, "level": "中", "evidence": ["bandpower.relative.beta"], "fixed_text": "焦虑风险为筛查提示，中等（45.0），需结合量表评估。", "missing_features": null, "confidence": 0.9}
+      },
+      "module_text_rule": "模块：风险预测/评估模块\nQC提示：数据质量可接受\n- 焦虑风险: 分数 45.0，等级 中。焦虑风险为筛查提示，中等（45.0），需结合量表评估。"
+    }
+  },
+  "final": {
+    "fallback_text": "EEG 评估汇总（规则拼接）\n[心理健康模块]\n- 安全感: 安全感代理指数中等（55.0），数据质量可接受\n[脑生理监测模块]\n- 脑耗氧: 脑耗氧为 EEG 代理指数，中等（60.0）。\n[认知功能评估模块]\n- 脑稳定度: 脑稳定度代理指数中等（52.0）。\n[风险预测/评估模块]\n- 焦虑风险: 焦虑风险为筛查提示，中等（45.0），需结合量表评估。\n本报告为 EEG 传统算法推断结果，仅供筛查与参考，不能用于诊断或治疗。",
+    "llm_used": false,
+    "disclaimer": "本报告为 EEG 传统算法推断结果，仅供筛查与参考，不能用于诊断或治疗。"
+  }
+}
